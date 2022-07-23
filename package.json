@@ -8,6 +8,9 @@
   },
   "author": "Manas-Anjalekar",
   "license": "ISC",
+  "engines": {
+    "node": "10.19.0"
+  },
   "dependencies": {
     "body-parser": "^1.20.0",
     "ejs": "^3.1.8",
