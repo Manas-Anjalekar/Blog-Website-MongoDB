@@ -1,0 +1,15 @@
+<%- include('partials/header') -%>
+<%- include('partials/nav') -%>
+<h1>Home</h1>
+<p class="mb-5">
+  <%= homeStartingContent %>
+</p>
+<% for(i=0;i<blogs.length;i++) { %>
+  <div class="container-fluid mb-4 py-5 border-top border-2 border-primary">
+    <% let link = "/blogs/" + blogs[i].id %>
+    <h3 class="text-primary"><a style="text-decoration: none;" href="<%= link %>"><%= blogs[i].composeTitle %></a></h3>
+    <h5 class="text-secondary"><i class="fa-solid fa-circle-user"></i> <%= blogs[i].user[0].name %></h5>
+    <p><%= blogs[i].composeBody.substring(0, 100); %></p>
+  </div>
+<% } %>
+<%- include('partials/footer') -%>

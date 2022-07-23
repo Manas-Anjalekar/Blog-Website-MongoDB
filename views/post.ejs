@@ -1,0 +1,10 @@
+<%- include('partials/header') -%>
+<%- include('partials/nav') -%>
+<h3><%= composeTitle %></h3>
+<p class="text-secondary author me-3 my-3">Created By-> <%= name %></p>
+<p class="text-secondary author mx-3 my-3">Contact the author here-> <%= emailAddress %></p>
+<p class="container-fluid mt-5 py-5 border-top border-2 border-primary"><%= composeBody %></p>
+<form class="" action="/blogs/<%= blog_id %>/delete" method="post">
+  <button class="btn btn-primary btn-sm my-3" type="submit" name="button">Delete Blog</button>
+</form>
+<%- include('partials/footer') -%>

@@ -1,0 +1,25 @@
+<%- include('partials/header') -%>
+<%- include('partials/nav') -%>
+<h1>Compose</h1>
+
+<form class="" action="/blogs/compose" method="post">
+  <div class="mb-3">
+    <label for="composeTitle" class="form-label">Title</label>
+    <input type="text" class="form-control" name="composeTitle" id="composeTitle" autocomplete="off">
+  </div>
+  <div class="mb-3">
+    <label for="composeTitle" class="form-label">Name</label>
+    <input type="text" class="form-control" name="name" id="name" autocomplete="off">
+  </div>
+  <div class="mb-3">
+    <label for="composeTitle" class="form-label">Email Address</label>
+    <input type="email" class="form-control" name="emailAddress" id="emailAddress" autocomplete="off">
+  </div>
+  <div class="mb-3">
+    <label for="composeBody" class="form-label">Post</label>
+    <textarea class="form-control mb-3" name="composeBody" id="composeBody" autocomplete="off" rows="8" cols="80"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" style="margin-top: 15px;">Publish</button>
+</form>
+
+<%- include('partials/footer') -%>
