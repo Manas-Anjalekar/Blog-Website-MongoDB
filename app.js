@@ -19,7 +19,6 @@ mongoose.connect('mongodb+srv://admin-Manas:AdminPassword@cluster0.i4vdm.mongodb
   useUnifiedTopology: true
 });
 
-let userName = "";
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -67,7 +66,7 @@ app.get('/blogs/compose', function(req, res) {
 });
 
 app.post('/blogs/compose', function(req, res) {
-  userName = req.body.name;
+  const userName = req.body.name;
 
   const user = new User({
     name: req.body.name,
@@ -79,9 +78,21 @@ app.post('/blogs/compose', function(req, res) {
     user: user
   });
 
-  user.save();
-  blog.save();
-  res.redirect('/');
+  const databaseUser = User.findOne({name: userName});
+  if (!databaseUser) {
+    user.save();
+    blog.save(function(err) {
+      if (!err) {
+        res.redirect('/');
+      }
+    });
+  }else{
+    blog.save(function(err) {
+      if (!err) {
+        res.redirect('/');
+      }
+    });
+  }
 });
 
 app.get('/blogs/:blog_id', function(req, res) {
